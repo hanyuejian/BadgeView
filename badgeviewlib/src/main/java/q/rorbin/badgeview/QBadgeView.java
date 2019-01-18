@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcelable;
+import android.support.constraint.ConstraintLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -155,7 +156,7 @@ public class QBadgeView extends View implements Badge {
                 ViewGroup.LayoutParams targetParams = targetView.getLayoutParams();
                 targetContainer.removeView(targetView);
                 final BadgeContainer badgeContainer = new BadgeContainer(getContext());
-                if(targetContainer instanceof RelativeLayout){
+                if(targetContainer instanceof RelativeLayout || targetContainer instanceof ConstraintLayout){
                     badgeContainer.setId(targetView.getId());
                 }
                 targetContainer.addView(badgeContainer, index, targetParams);
